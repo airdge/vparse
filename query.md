@@ -1,7 +1,6 @@
-参数说明
-
-视频:
-
+# 参数说明
+## 视频:
+```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j
 {
     "duration": 1445,
@@ -37,25 +36,25 @@ $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j
     "vid": "1f744786c7f4b15d4ec70b08d030bbfd",
     "vtype": "video"
 }
-参数	说明
-duration	时长
-ext	下载格式
-hd	当前解析分辨率数值大小
-image	图片
-multirates	当前视频有多少分辨率选项可下载
-parse	解析链接
-pay	是否会员可看
-playType	播放格式
-show	当前下载的分辨率名称
-streams	下载数据
-mp4	解析包含mp4
-m3u8	解析包含m3u8
-segs	duration:切片时长 size:切片大小 url:切片链接
-title	标题
-tvid	视频tvid(如果有)
-type	视频site(类型)
-vid	视频解析vid
-vtype	视频形式 音乐 视频  直播
+```
 
-
-
+| 参数 | 说明 |
+| --- | --- |
+| duration | 时长 |
+| ext | 下载格式 |
+| hd | 当前解析分辨率数值大小 |
+| image | 图片 |
+| multirates  | 当前视频有多少分辨率选项可下载 |
+| parse | 解析链接 |
+| pay | 是否会员可看 |
+| playType | 播放格式 |
+| show | 当前下载的分辨率名称 |
+| streams | 下载数据 |
+| mp4 | 解析包含mp4 |
+| m3u8 | 解析包含m3u8 |
+| segs | duration:切片时长 size:切片大小 url:切片链接 |
+| title | 标题 |
+| tvid | 视频tvid(如果有) |
+| type | 视频site(类型) |
+| vid | 视频解析vid |
+| vtype | 视频形式 音乐 视频  直播 |
