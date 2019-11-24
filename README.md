@@ -182,7 +182,8 @@ $ vparse 9177088900 -t iqiyi -q -j
     "vtype": "video"
 }
 ```
-**-x : 代理设置**
+**-x : proxy代理**
+
 ```
 vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x socks5://127.0.0.1:1080 -j
 vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x 127.0.0.1:10800 -j
@@ -362,6 +363,56 @@ $ vparse http://www.le.com/comic/45402.html -l -q -j -b 60,64
     "vtype": "video"
 }
 ```
+**-y : 语言选项**
+
+```
+$ vparse https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html -j -y yue
+{
+    "duration": 6122.33,
+    "ext": "mp4",
+    "hd": 4,
+    "image": "https://vthumb.ykimg.com/054101015D847F898B6C069AAD259696",
+    "multirates": 4,
+    "parse": "https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html",
+    "pay": 1,
+    "playType": "m3u8",
+    "quality": [
+        "mp4sd",
+        "mp4hd",
+        "mp4hd2v2",
+        "mp4hd3v2"
+    ],
+    "show": "mp4hd3v2",
+    "streams": {
+        "extra": {
+            "language": [
+                {
+                    "code": "guoyu",
+                    "lang": "普通话",
+                    "url": "https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html"
+                },
+                {
+                    "code": "yue",
+                    "lang": "粤语",
+                    "url": "https://v.youku.com/v_show/id_XMzU5NzIxNzg3Mg==.html"
+                }
+            ]
+        },
+        "m3u8": "http://pl-ali.youku.com/playlist/m3u8?vid=XMzU5NzIxNzg3Mg%3D%3D&type=mp4hd3v3&ups_client_netip=7d4f14e0&utid=&ccode=0511&psid=21c92c701e39864f23e1735456e46bde&duration=6131&expire=18000&drm_type=1&drm_device=0&ups_ts=1574580289&onOff=0&encr=0&ups_key=caef062325cc4cf654078e295164f94d",
+        "segs": [
+            {
+                "duration": 135.083,
+                "url": "http://vali.cp31.ott.cibntv.net/697674F07A333714DB2726E1E/03000C2D005CDEA5757D338055EEB34AD3A715-479C-4458-BCBB-9A88B064C876.mp4?ccode=0511&duration=135&expire=18000&psid=21c92c701e39864f23e1735456e46bde&ups_client_netip=&ups_ts=1574580289&ups_userid=&utid=&vid=XMzU5NzIxNzg3Mg%3D%3D&vkey=Ae91f83997b7c0968bb54fa5d7fcff0f8&s=cc036bd4962411de83b1&sp=&bc=2&dre=u20&si=44"
+            },
+        ]
+    },
+    "title": "唐伯虎点秋香[粤语]",
+    "type": "youku",
+    "vid": "XMzQ3OTU4NjA3Ng==",
+    "vtype": "video"
+}
+```
+
 ## 参数说明
 | 参数 | 数值 | 默认 | 说明 | 英 |
 | --- | --- | --- | --- | --- |
@@ -384,6 +435,7 @@ $ vparse http://www.le.com/comic/45402.html -l -q -j -b 60,64
 | -u <div>--multi | 10 <div>  x | False | 下载格式为m3u8<div>启用多线程(伪)下载 |  |
 | -v <div>--vtype | video<div> music<div>   live  | False | 区分urls类型<div>直播或音乐或视频<div> 若urls以id形式,必须添加 |  |
 | -x<div> —proxy | socks5://x.x.x.x:y <div>x.x.x.x:y | False | 代理服务器<div> http http socks |  |
+| -y<div> —-lang |  | False | 国语/粤语...获取 |  |
 | -z<div> --timeout | 8 | False | 超时设置 |  |
 | -ccode <div>--ccode |  |  | 优酷ccode |  |
 | -pwd<div> --pwd |  |  | 视频密码 |  |
