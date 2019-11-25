@@ -1,8 +1,12 @@
 
 ## 版本要求
 **python>=3.6**
+## 扩展依赖
 
-
+```'
+requests', 'pycryptodome', 'pysocks','gevent','pyexecjs'
+```
+**如果你的操作环境支持[quickjs](https://github.com/PetterS/quickjs),请先安装**
 ## 使用说明
 **默认打印JSON**
 ```
@@ -412,7 +416,28 @@ $ vparse https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html -j -y yue
     "vtype": "video"
 }
 ```
+**-p : 播放器播放**
 
+```
+$ vparse https://www.iqiyi.com/v_19rv876x9k.html -p mpv
+$ vparse https://www.iqiyi.com/v_19rv876x9k.html -p browser
+site:                爱奇艺(AQIYI)
+title:               刀剑神域 爱丽丝篇 异界战争 第5集 开战前夜
+image:               http://pic7.iqiyipic.com/image/20191110/ed/52/v_140769663_m_601_m1_480_270.jpg
+vid:                 1f744786c7f4b15d4ec70b08d030bbfd
+tvid:                9177088900
+duration:            1445
+parse:               https://www.iqiyi.com/v_19rv876x9k.html
+hd:                  5
+stream:
+    - ext:           m3u8
+      quality:       ['极速', '流畅', '高清', '720P', '1080P', '1080P50']
+      show:          1080P
+      multirates:    6
+
+
+Playing: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574651816157&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574651815000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_9e685d3c0894e82edcb54bae142773b1_1574651815000&k_uid=9e685d3c0894e82edcb54bae142773b1&px=&_lnt=0&vf=419e2f1b4e3ab0adab8719fd3850675d
+```
 ## 参数说明
 | 参数 | 数值 | 默认 | 说明 | 英 |
 | --- | --- | --- | --- | --- |
@@ -434,7 +459,7 @@ $ vparse https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html -j -y yue
 | -t <div>--type | bilibili <div> qq | False | 若urls以id形式<div>必须添加 |  |
 | -u <div>--multi | 10 <div>  x | False | 下载格式为m3u8<div>启用多线程(伪)下载 |  |
 | -v <div>--vtype | video<div> music<div>   live  | False | 区分urls类型<div>直播或音乐或视频<div> 若urls以id形式,必须添加 |  |
-| -x<div> —proxy | socks5://x.x.x.x:y <div>x.x.x.x:y | False | 代理服务器<div> http http socks |  |
+| -x<div> —proxy | socks5://x.x.x.x:y <div>x.x.x.x:y | False | 代理服务器<div> http https socks |  |
 | -y<div> —-lang |  | False | 国语/粤语...获取 |  |
 | -z<div> --timeout | 8 | False | 超时设置 |  |
 | -ccode <div>--ccode |  |  | 优酷ccode |  |
