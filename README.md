@@ -11,7 +11,7 @@ requests', 'pycryptodome', 'pysocks','gevent','pyexecjs'
 **默认打印JSON**
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html
-{'title': '刀剑神域 爱丽丝篇 异界战争 第5集 开战前夜', 'image': 'http://pic7.iqiyipic.com/image/20191110/ed/52/v_140769663_m_601_m1_480_270.jpg', 'vid': '1f744786c7f4b15d4ec70b08d030bbfd', 'tvid': '9177088900', 'pay': '', 'duration': 1445, 'hd': 5, 'parse': 'https://www.iqiyi.com/v_19rv876x9k.html', 'type': 'iqiyi', 'vtype': 'video', 'streams': {'segs': [{'url': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574560984989&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574560983000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_0bf07aa57b104186c904feafd1a0a935_1574560983000&k_uid=0bf07aa57b104186c904feafd1a0a935&px=&_lnt=0&vf=92e648f96498d3641ba845968934c119', 'duration': 1445, 'size': 325434438}], 'm3u8': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574560984989&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574560983000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_0bf07aa57b104186c904feafd1a0a935_1574560983000&k_uid=0bf07aa57b104186c904feafd1a0a935&px=&_lnt=0&vf=92e648f96498d3641ba845968934c119'}, 'quality': ['极速', '流畅', '高清', '720P', '1080P', '1080P50'], 'multirates': 6, 'show': '1080P', 'playType': 'm3u8', 'ext': 'm3u8'}
+{'title': '刀剑神域 爱丽丝篇 异界战争 第5集 开战前夜', 'image': 'http://pic7.iqiyipic.com/image/20191110/ed/52/v_140769663_m_601_m1_480_270.jpg', 'vid': '1f744786c7f4b15d4ec70b08d030bbfd', 'tvid': '9177088900', 'pay': '', 'duration': 1445, 'hd': 5, 'parse': 'https://www.iqiyi.com/v_19rv876x9k.html', 'type': 'iqiyi', 'vtype': 'video', 'streams': {'segs': [{'url': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8', 'duration': 1445, 'size': 325434438}], 'm3u8': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8'}, 'quality': ['极速', '流畅', '高清', '720P', '1080P', '1080P50'], 'multirates': 6, 'show': '1080P', 'playType': 'm3u8', 'ext': 'm3u8'}
 ```
 **-d : 下载**
 ```
@@ -31,7 +31,7 @@ stream:
       multirates:    6
       dir:           /Users/air/video/iqiyi
 
-Hls: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574561688391&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574561687000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_b3280dcbb45876c88b43ce4baefbee49_1574561687000&k_uid=b3280dcbb45876c88b43ce4baefbee49&px=&_lnt=0&vf=cf712ca29e81048055c2a2d99ef05820
+Hls: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8
 
 
 [1 / 190] |-████████████████████████████████-|100%  2170.78kb/s 0.73M/0.85M 
@@ -59,12 +59,12 @@ $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j
     ],
     "show": "1080P",
     "streams": {
-        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574561192791&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574561191000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_1aa9e86e9876f9368780bfe6d95f98b7_1574561191000&k_uid=1aa9e86e9876f9368780bfe6d95f98b7&px=&_lnt=0&vf=73ea88886dd8ee8fb40a955042a624d0",
+        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8",
         "segs": [
             {
                 "duration": 1445,
                 "size": 325434438,
-                "url": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574561192791&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574561191000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_1aa9e86e9876f9368780bfe6d95f98b7_1574561191000&k_uid=1aa9e86e9876f9368780bfe6d95f98b7&px=&_lnt=0&vf=73ea88886dd8ee8fb40a955042a624d0"
+                "url": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8"
             }
         ]
     },
@@ -98,12 +98,12 @@ $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j -r 1
     ],
     "show": "极速",
     "streams": {
-        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/e0af4c681ed3af040f893d7cb249efcf/afbe8fd3d73448c9//20191107/30/5b/433b7103cdaa1a6e542f88bc491ed6d5.m3u8?vt=0&qd_uri=dash&qd_time=1574563138612&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574563137000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_14d58671a39af104554307e66954eb35_1574563137000&k_uid=14d58671a39af104554307e66954eb35&px=&_lnt=0&vf=60251dbc471dc21994508da4dda2c854",
+        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/e0af4c681ed3af040f893d7cb249efcf/afbe8fd3d73448c9//20191107/30/5b/433b7103cdaa1a6e542f88bc491ed6d5.m3u8",
         "segs": [
             {
                 "duration": 1445,
                 "size": 28441560,
-                "url": "http://cache.m.iqiyi.com/mus/246382101/e0af4c681ed3af040f893d7cb249efcf/afbe8fd3d73448c9//20191107/30/5b/433b7103cdaa1a6e542f88bc491ed6d5.m3u8?vt=0&qd_uri=dash&qd_time=1574563138612&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574563137000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_14d58671a39af104554307e66954eb35_1574563137000&k_uid=14d58671a39af104554307e66954eb35&px=&_lnt=0&vf=60251dbc471dc21994508da4dda2c854"
+                "url": "http://cache.m.iqiyi.com/mus/246382101/e0af4c681ed3af040f893d7cb249efcf/afbe8fd3d73448c9//20191107/30/5b/433b7103cdaa1a6e542f88bc491ed6d5.m3u8"
             }
         ]
     },
@@ -154,12 +154,12 @@ $ vparse https://www.iqiyi.com/v_19rvasnkfk.html -c "name=value; name2=value2;" 
     ],
     "show": "1080P",
     "streams": {
-        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/b4963ee84fbc9342ea3b1fac0c25b8dc/afbe8fd3d73448c9/1725925222/20191121/ce/d7/4f5259ad6061c40783b8eff7911b6267.m3u8?vt=0&qd_uri=dash&qd_time=1574562021299&bossStatus=2&_lnt=0&prv=0&qd_originate=pcw&code=2&ff=ts&px=&tm=1574562020000&previewType=3&src=01080031010000000000&qd_vip=1&tvid=9623313500&k_uid=dafec0530e6aab2b4a9fd84b65f70b7d&previewTime=0&sgti=14_dafec0530e6aab2b4a9fd84b65f70b7d_1574562020000&vf=d182e926dd8dc966394685562a60ad26",
+        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/b4963ee84fbc9342ea3b1fac0c25b8dc/afbe8fd3d73448c9/1725925222/20191121/ce/d7/4f5259ad6061c40783b8eff7911b6267.m3u8",
         "segs": [
             {
                 "duration": 1445,
                 "size": 344350624,
-                "url": "http://cache.m.iqiyi.com/mus/246382101/b4963ee84fbc9342ea3b1fac0c25b8dc/afbe8fd3d73448c9/1725925222/20191121/ce/d7/4f5259ad6061c40783b8eff7911b6267.m3u8?vt=0&qd_uri=dash&qd_time=1574562021299&bossStatus=2&_lnt=0&prv=0&qd_originate=pcw&code=2&ff=ts&px=&tm=1574562020000&previewType=3&src=01080031010000000000&qd_vip=1&tvid=9623313500&k_uid=dafec0530e6aab2b4a9fd84b65f70b7d&previewTime=0&sgti=14_dafec0530e6aab2b4a9fd84b65f70b7d_1574562020000&vf=d182e926dd8dc966394685562a60ad26"
+                "url": "http://cache.m.iqiyi.com/mus/246382101/b4963ee84fbc9342ea3b1fac0c25b8dc/afbe8fd3d73448c9/1725925222/20191121/ce/d7/4f5259ad6061c40783b8eff7911b6267.m3u8"
             }
         ]
     },
@@ -189,8 +189,8 @@ $ vparse 9177088900 -t iqiyi -q -j
 **-x : proxy代理**
 
 ```
-vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x socks5://127.0.0.1:1080 -j
-vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x 127.0.0.1:10800 -j
+$ vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x socks5://127.0.0.1:1080 -j
+$ vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x 127.0.0.1:10800 -j
 {
     "duration": "2602",
     "ext": "mp4",
@@ -216,10 +216,10 @@ vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x 127.0.0.1:10800 -j
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:68.0) Gecko/20100101 Firefox/68.0"
             }
         },
-        "mp4": "https://r4---sn-i3b7knlk.googlevideo.com/videoplayback?expire=1574584588&ei=rOzZXaToEYz84wKn6ZqIAg&ip=154.204.42.196&id=o-AM38i-mJfAyCajvGjEOiOemkJDNP46b10bcT9R13fCOA&itag=18&source=youtube&requiressl=yes&mm=31%2C29&mn=sn-i3b7knlk%2Csn-i3beln7r&ms=au%2Crdu&mv=u&mvi=3&pl=24&gcr=hk&mime=video%2Fmp4&gir=yes&clen=104416108&ratebypass=yes&dur=2602.213&lmt=1540434273073546&mt=1574562416&fvip=4&fexp=23842630&c=WEB&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&lsparams=mm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AHylml4wRgIhAJl1EeNWEWwMtJgCI9pg71Z31U9ssKn2E0ffKD8BNDpYAiEA_A3QmTyGsZiEoDn6o5gNxwpVZFkMZutWBoTMny6ESq4%3D",
+        "mp4": "https://r4---sn-i3b7knlk.googlevideo.com/videoplayback?expire=1574584588&ei=rOzZXaToEYz84wKn6ZqIA",
         "segs": [
             {
-                "url": "https://r4---sn-i3b7knlk.googlevideo.com/videoplayback?expire=1574584588&ei=rOzZXaToEYz84wKn6ZqIAg&ip=154.204.42.196&id=o-AM38i-mJfAyCajvGjEOiOemkJDNP46b10bcT9R13fCOA&itag=18&source=youtube&requiressl=yes&mm=31%2C29&mn=sn-i3b7knlk%2Csn-i3beln7r&ms=au%2Crdu&mv=u&mvi=3&pl=24&gcr=hk&mime=video%2Fmp4&gir=yes&clen=104416108&ratebypass=yes&dur=2602.213&lmt=1540434273073546&mt=1574562416&fvip=4&fexp=23842630&c=WEB&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&lsparams=mm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AHylml4wRgIhAJl1EeNWEWwMtJgCI9pg71Z31U9ssKn2E0ffKD8BNDpYAiEA_A3QmTyGsZiEoDn6o5gNxwpVZFkMZutWBoTMny6ESq4%3D"
+                "url": "https://r4---sn-i3b7knlk.googlevideo.com/videoplayback?expire=1574584588&ei=rOzZXaToEYz84wKn6ZqIAg"
             }
         ]
     },
@@ -313,8 +313,8 @@ $ vparse http://www.le.com/comic/45402.html -l -q -j -o 12,26,55
 
 ```
 $ vparse http://www.le.com/comic/45402.html -l -q -j -b 60,64
-  vparse http://www.le.com/comic/45402.html -l -q -j -b -4
-  vparse http://www.le.com/comic/45402.html -l -q -j -b 60
+$ vparse http://www.le.com/comic/45402.html -l -q -j -b -4
+$ vparse http://www.le.com/comic/45402.html -l -q -j -b 60
   
 {
     "hd": 5,
@@ -402,11 +402,11 @@ $ vparse https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html -j -y yue
                 }
             ]
         },
-        "m3u8": "http://pl-ali.youku.com/playlist/m3u8?vid=XMzU5NzIxNzg3Mg%3D%3D&type=mp4hd3v3&ups_client_netip=7d4f14e0&utid=&ccode=0511&psid=21c92c701e39864f23e1735456e46bde&duration=6131&expire=18000&drm_type=1&drm_device=0&ups_ts=1574580289&onOff=0&encr=0&ups_key=caef062325cc4cf654078e295164f94d",
+        "m3u8": "http://pl-ali.youku.com/playlist/m3u8?vid=XMzU5NzIxNzg3Mg%3D%3D&type=mp4hd3v3",
         "segs": [
             {
                 "duration": 135.083,
-                "url": "http://vali.cp31.ott.cibntv.net/697674F07A333714DB2726E1E/03000C2D005CDEA5757D338055EEB34AD3A715-479C-4458-BCBB-9A88B064C876.mp4?ccode=0511&duration=135&expire=18000&psid=21c92c701e39864f23e1735456e46bde&ups_client_netip=&ups_ts=1574580289&ups_userid=&utid=&vid=XMzU5NzIxNzg3Mg%3D%3D&vkey=Ae91f83997b7c0968bb54fa5d7fcff0f8&s=cc036bd4962411de83b1&sp=&bc=2&dre=u20&si=44"
+                "url": "http://vali.cp31.ott.cibntv.net/697674F07A333714DB2726E1E/03000C2D005CDEA5757D338055EEB34AD3A715-479C-4458-BCBB-9A88B064C876.mp4?ccode=0511&duration=135"
             },
         ]
     },
@@ -436,7 +436,54 @@ stream:
       multirates:    6
 
 
-Playing: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574651816157&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574651815000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_9e685d3c0894e82edcb54bae142773b1_1574651815000&k_uid=9e685d3c0894e82edcb54bae142773b1&px=&_lnt=0&vf=419e2f1b4e3ab0adab8719fd3850675d
+Playing: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8
+```
+**-s : 调试**
+
+```
+$ vparse http://www.le.com/ptv/vplay/1277143.html -s -j
+DEBUG:root:query: {"vid": "1277143", "hd": 5, "parse": "http://www.le.com/ptv/vplay/1277143.html", "type": "le", "vtype": "video"}
+
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): player-pc.le.com:80
+DEBUG:urllib3.connectionpool:http://player-pc.le.com:80 "GET /mms/out/video/playJson?id=1277143&platid=1&splatid=105&format=1&tkey=2639962097&domain=www.le.com&region=cn&source=1000&accessyx=1&tss=ios HTTP/1.1" 200 None
+DEBUG:parse:data: {"code": 1, "msgs": {"playurl": {"videoType": {"180001": "\u6b63\u7247"}, "cid": "5", "pid": 45402, "vid": 1277143, "mid": ",1351419,", "title": "\u94a2\u4e4b\u70bc\u91d1\u672f\u5e08FA \u7b2c01\u8bdd", "picAll": {"640*320": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_640_320.jpg", "400*300": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_400_300.jpg", "300*400": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_300_400.jpg", "400*225": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_400_225.jpg", "400*250": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_400_250.jpg"}, "pic": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_120_90.jpg", "download": ["290002", "290003", "290005"], "total": 64, "nextvid": 1277145, "subtitle": "", "domain": ["http://play.g3proxy.lecloud.com", "http://bplay.g3proxy.lecloud.com", "http://123.59.235.111"], "dispatch": {"350": ["/vod/v2/MjMwLzcvMTAxL2xldHYtdXRzLzE0L3Zlcl8wMF8yMi0xMDcyODE2NTIzLWF2Yy0yMDAxMDctYWFjLTMyMDAzLTE0NjczMDEtNDQzNTcxNTYtMzc0MDczNTFiNTgzNjEyYjA4YWUyMzY1MjllOGIyMDUtMTQ3OTI2ODY3NzEyNi5tcDQ=?b=241&mmsid=1351419"], "1000": ["/vod/v2/MjM4LzQ4LzkxL2xldHYtdXRzLzE0L3Zlcl8wMF8yMi0xMDcyODE2NTI3LWF2Yy0zOTAyOTItYWFjLTMyMDAzLTE0NjczMDEtNzkyNDA3NTgtZTA1ZWNmYTE0ZjZlMzJmYWYwZmRmZGUwNDViNzc2YjYtMTQ3OTI2ODU3MDI0OC5tcDQ=?b=432&mmsid=1351419"]}, "duration": 1467}, "drmFlag": false, "point": {"hot": {}, "skip": [0, 0]}, "paylist": ["1080p"], "firstlook": "0", "playstatus": {"status": "1"}, "isTryLook": "0", "danmu": 1, "watermark": {"imgs": [{"lasttime": "1800", "link": "", "position": "2", "url100": "http://i1.letvimg.com/lc04_iscms/201601/12/15/22/47615b27e213449da27bfd356df13f38.png"}, {"lasttime": "1800", "link": "", "position": "1", "url100": "http://i0.letvimg.com/lc04_iscms/201601/12/15/22/afd7ca79d3564037acd9606ce04069c2.png"}], "offset": "3"}, "statuscode": 1001, "vtypeFlag": false, "curVType": "1000", "trylook": 0, "trylookTime": 0}}
+
+{
+    "duration": 1467,
+    "ext": "m3u8",
+    "hd": 2,
+    "multirates": 2,
+    "parse": "http://www.le.com/ptv/vplay/1277143.html",
+    "playType": "m3u8",
+    "quality": [
+        "流畅",
+        "标清"
+    ],
+    "show": "标清",
+    "streams": {
+        "extra": {
+            "header": {
+                "Accept": "*/*",
+                "Accept-Language": "zh-cn",
+                "Cache-Control": "no-cache",
+                "Pragma": "no-cache",
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:68.0) Gecko/20100101 Firefox/68.0"
+            }
+        },
+        "m3u8": "http://play.g3proxy.lecloud.com//vod/v2/MjM4LzQ4LzkxL2xldHYtdXRzLzE0L3Zlcl8wMF8yMi0xMDcyODE2NTI3LWF2Yy0zOTAyOTItYWFjLTMyMDAzLTE0NjczMDEtNzkyNDA3NTgtZTA1ZWNmYTE0ZjZlMzJmYWYwZmRmZGUwNDViNzc2YjYtMTQ3OTI2ODU3MDI0OC5tcDQ=?b=432&mmsid=1351419",
+        "segs": [
+            {
+                "duration": 1467,
+                "url": "http://play.g3proxy.lecloud.com//vod/v2/MjM4LzQ4LzkxL2xldHYtdXRzLzE0L3Zlcl8wMF8yMi0xMDcyODE2NTI3LWF2Yy0zOTAyOTItYWFjLTMyMDAzLTE0NjczMDEtNzkyNDA3NTgtZTA1ZWNmYTE0ZjZlMzJmYWYwZmRmZGUwNDViNzc2YjYtMTQ3OTI2ODU3MDI0OC5tcDQ=?b=432&mmsid=1351419"
+            }
+        ]
+    },
+    "title": "钢之炼金术师FA 第01话",
+    "type": "le",
+    "vid": "1277143",
+    "vtype": "video"
+}
+
 ```
 ## 参数说明
 | 参数 | 数值 | 默认 | 说明 | 英 |

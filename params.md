@@ -21,12 +21,12 @@ $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j
     ],
     "show": "1080P",
     "streams": {
-        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574561192791&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574561191000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_1aa9e86e9876f9368780bfe6d95f98b7_1574561191000&k_uid=1aa9e86e9876f9368780bfe6d95f98b7&px=&_lnt=0&vf=73ea88886dd8ee8fb40a955042a624d0",
+        "m3u8": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8",
         "segs": [
             {
                 "duration": 1445,
                 "size": 325434438,
-                "url": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8?vt=0&qd_uri=dash&qd_time=1574561192791&qd_originate=pcw&code=2&bossStatus=0&src=01080031010000000000&tm=1574561191000&ff=ts&tvid=9177088900&qd_vip=1&sgti=14_1aa9e86e9876f9368780bfe6d95f98b7_1574561191000&k_uid=1aa9e86e9876f9368780bfe6d95f98b7&px=&_lnt=0&vf=73ea88886dd8ee8fb40a955042a624d0"
+                "url": "http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8"
             }
         ]
     },
