@@ -1,6 +1,6 @@
 
 ## 版本要求
-**python>=3.6**
+**python>=3.6** 
 ## 扩展依赖
 
 ```'
@@ -13,86 +13,6 @@ requests', 'pycryptodome', 'pysocks','gevent','pyexecjs'
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html
 {'title': '刀剑神域 爱丽丝篇 异界战争 第5集 开战前夜', 'image': 'http://pic7.iqiyipic.com/image/20191110/ed/52/v_140769663_m_601_m1_480_270.jpg', 'vid': '1f744786c7f4b15d4ec70b08d030bbfd', 'tvid': '9177088900', 'pay': '', 'duration': 1445, 'hd': 5, 'parse': 'https://www.iqiyi.com/v_19rv876x9k.html', 'type': 'iqiyi', 'vtype': 'video', 'streams': {'segs': [{'url': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8', 'duration': 1445, 'size': 325434438}], 'm3u8': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8'}, 'quality': ['极速', '流畅', '高清', '720P', '1080P', '1080P50'], 'multirates': 6, 'show': '1080P', 'playType': 'm3u8', 'ext': 'm3u8'}
 ```
-**读取文本链接 暂只支持txt格式**
-
-```
-urls.txt格式
-
-http://www.le.com/ptv/vplay/1277143.html
-1277145
-1277142
-http://www.le.com/ptv/vplay/1277141.html
-```
-
-```
-$ vparse ./urls.txt -t le -q -j
-{
-    "hd": 5,
-    "image": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_640_320.jpg",
-    "parse": "http://www.le.com/ptv/vplay/1277143.html",
-    "title": "钢之炼金术师FA 第01话",
-    "tvid": "1351419",
-    "type": "le",
-    "vid": "1277143",
-    "vtype": "video"
-}
-{
-    "hd": 5,
-    "image": "http://i3.letvimg.com/lc08_yunzhuanma/201611/16/11/48/bc507343910aedd19c0d194e835151c9_v2_MjcwMzg0Mg==/thumb/6_640_320.jpg",
-    "parse": "1277145",
-    "title": "钢之炼金术师FA 第02话",
-    "tvid": "1351421",
-    "type": "le",
-    "vid": "1277145",
-    "vtype": "video"
-}
-{
-    "hd": 5,
-    "image": "http://i1.letvimg.com/lc12_yunzhuanma/201611/16/14/39/83093e33235cbf0cc403994073d5affa_v2_MjcwMzgzNg==/thumb/6_640_320.jpg",
-    "parse": "1277142",
-    "title": "钢之炼金术师FA 第03话",
-    "tvid": "1351418",
-    "type": "le",
-    "vid": "1277142",
-    "vtype": "video"
-}
-{
-    "hd": 5,
-    "image": "http://i3.letvimg.com/lc08_yunzhuanma/201611/16/16/33/76362b5277a31258e7bbfc4ee7066b7c_v2_MjcwMzgzNA==/thumb/2_640_320.jpg",
-    "parse": "http://www.le.com/ptv/vplay/1277141.html",
-    "title": "钢之炼金术师FA 第04话",
-    "tvid": "1351417",
-    "type": "le",
-    "vid": "1277141",
-    "vtype": "video"
-}
-```
-**一次获取多个解析**
-
-```
-$ vparse -q -j -t le http://www.le.com/ptv/vplay/1277141.html http://www.le.com/ptv/vplay/1277142.html
-{
-    "hd": 5,
-    "image": "http://i3.letvimg.com/lc08_yunzhuanma/201611/16/16/33/76362b5277a31258e7bbfc4ee7066b7c_v2_MjcwMzgzNA==/thumb/2_640_320.jpg",
-    "parse": "http://www.le.com/ptv/vplay/1277141.html",
-    "title": "钢之炼金术师FA 第04话",
-    "tvid": "1351417",
-    "type": "le",
-    "vid": "1277141",
-    "vtype": "video"
-}
-{
-    "hd": 5,
-    "image": "http://i1.letvimg.com/lc12_yunzhuanma/201611/16/14/39/83093e33235cbf0cc403994073d5affa_v2_MjcwMzgzNg==/thumb/6_640_320.jpg",
-    "parse": "http://www.le.com/ptv/vplay/1277142.html",
-    "title": "钢之炼金术师FA 第03话",
-    "tvid": "1351418",
-    "type": "le",
-    "vid": "1277142",
-    "vtype": "video"
-}
-```
-
 **-d : 下载**
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -d
@@ -518,6 +438,32 @@ stream:
 
 Playing: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8
 ```
+**-n : 自定义下载文件名**
+```
+$ vparse http://www.le.com/ptv/vplay/1277141.html -n 乐视视频标题测试 -d
+site:                乐视(LE)
+title:               乐视视频标题测试
+vid:                 1277141
+duration:            1469
+parse:               http://www.le.com/ptv/vplay/1277141.html
+hd:                  2
+stream:
+    - ext:           m3u8
+      quality:       ['流畅', '标清']
+      show:          标清
+      multirates:    2
+      dir:           /Users/air/Desktop/video/le
+
+Hls: http://play.g3proxy.lecloud.com//vod/v2/MjMyLzUzLzIzL2xldHYtdXRzLzE0L3Zlcl8wMF8yMi0xMDcyODU0Njk0LWF2Yy0zODk4MTctYWFjLTMyMDAwLTE0Njk1NTMtNzkwNjcyMzAtNzBlMWUyODg5ODBiMTkwNmZlODI1M2JkMTYzMjc5ZDItMTQ3OTI4NTc2MjgwOS5tcDQ=?b=430&mmsid=1351417&tm=1574761118
+
+
+[1 / 86] |-████████████████████████████████-|100%  3998.67kb/s 0.00M/0.18M 
+[2 / 86] |-████████████████████████████████-|100%  5440.22kb/s 0.00M/0.49M 
+[3 / 86] |-████████████████████████████████-|100%  4295.89kb/s 0.41M/0.44M 
+[4 / 86] |-████████████████████████████████-|100%  4561.04kb/s 0.00M/0.42M 
+[5 / 86] |-████████████████████████████████-|100%  5343.18kb/s 1.51M/1.79M 
+[6 / 86] |-████████████████████████████████-|100%  5254.63kb/s 0.94M/1.44M 
+```
 **-s : 调试**
 
 ```
@@ -565,6 +511,87 @@ DEBUG:parse:data: {"code": 1, "msgs": {"playurl": {"videoType": {"180001": "\u6b
 }
 
 ```
+**读取文本链接 暂只支持txt格式**
+
+```
+urls.txt格式
+
+http://www.le.com/ptv/vplay/1277143.html
+1277145
+1277142
+http://www.le.com/ptv/vplay/1277141.html
+```
+
+```
+$ vparse ./urls.txt -t le -q -j
+{
+    "hd": 5,
+    "image": "http://i2.letvimg.com/lc09_yunzhuanma/201611/16/11/57/5718cbc33bd8c2cd6270066c73a187ce_v2_MjcwMzgzOA==/thumb/5_640_320.jpg",
+    "parse": "http://www.le.com/ptv/vplay/1277143.html",
+    "title": "钢之炼金术师FA 第01话",
+    "tvid": "1351419",
+    "type": "le",
+    "vid": "1277143",
+    "vtype": "video"
+}
+{
+    "hd": 5,
+    "image": "http://i3.letvimg.com/lc08_yunzhuanma/201611/16/11/48/bc507343910aedd19c0d194e835151c9_v2_MjcwMzg0Mg==/thumb/6_640_320.jpg",
+    "parse": "1277145",
+    "title": "钢之炼金术师FA 第02话",
+    "tvid": "1351421",
+    "type": "le",
+    "vid": "1277145",
+    "vtype": "video"
+}
+{
+    "hd": 5,
+    "image": "http://i1.letvimg.com/lc12_yunzhuanma/201611/16/14/39/83093e33235cbf0cc403994073d5affa_v2_MjcwMzgzNg==/thumb/6_640_320.jpg",
+    "parse": "1277142",
+    "title": "钢之炼金术师FA 第03话",
+    "tvid": "1351418",
+    "type": "le",
+    "vid": "1277142",
+    "vtype": "video"
+}
+{
+    "hd": 5,
+    "image": "http://i3.letvimg.com/lc08_yunzhuanma/201611/16/16/33/76362b5277a31258e7bbfc4ee7066b7c_v2_MjcwMzgzNA==/thumb/2_640_320.jpg",
+    "parse": "http://www.le.com/ptv/vplay/1277141.html",
+    "title": "钢之炼金术师FA 第04话",
+    "tvid": "1351417",
+    "type": "le",
+    "vid": "1277141",
+    "vtype": "video"
+}
+```
+**一次获取多个解析**
+
+```
+$ vparse -q -j -t le http://www.le.com/ptv/vplay/1277141.html http://www.le.com/ptv/vplay/1277142.html
+{
+    "hd": 5,
+    "image": "http://i3.letvimg.com/lc08_yunzhuanma/201611/16/16/33/76362b5277a31258e7bbfc4ee7066b7c_v2_MjcwMzgzNA==/thumb/2_640_320.jpg",
+    "parse": "http://www.le.com/ptv/vplay/1277141.html",
+    "title": "钢之炼金术师FA 第04话",
+    "tvid": "1351417",
+    "type": "le",
+    "vid": "1277141",
+    "vtype": "video"
+}
+{
+    "hd": 5,
+    "image": "http://i1.letvimg.com/lc12_yunzhuanma/201611/16/14/39/83093e33235cbf0cc403994073d5affa_v2_MjcwMzgzNg==/thumb/6_640_320.jpg",
+    "parse": "http://www.le.com/ptv/vplay/1277142.html",
+    "title": "钢之炼金术师FA 第03话",
+    "tvid": "1351418",
+    "type": "le",
+    "vid": "1277142",
+    "vtype": "video"
+}
+```
+
+
 ## 参数说明
 | 参数 | 数值 | 默认 | 说明 | 英 |
 | --- | --- | --- | --- | --- |
@@ -632,3 +659,15 @@ DEBUG:parse:data: {"code": 1, "msgs": {"playurl": {"videoType": {"180001": "\u6b
         "dir": "%vtype/%type", # 默认保存目录 
     }
 ```
+
+## 路径说明
+
+| 参数 | 数值 | 示例 |
+| --- | --- | --- |
+| string | download  | 会在目录下创建download文件夹 |
+| %type | 解析链接域名 | qq youku |
+| %vtype | 解析链接所属 | video music live |
+| %title | 解析链接标题 | 刀剑神域第一季第一集 |
+| %m | 时间日期格式化 | 月份 |
+| %y | 时间日期格式化 | 年份 |
+| %** | 时间日期格式化 | 具体查阅python日期格式 |
