@@ -1,19 +1,29 @@
 
 ## 版本要求
 **python>=3.6** 
+## 安装文件路径查询
+
+```
+pip3 show vparse
+```
 ## 扩展依赖
 
 ```'
 requests', 'pycryptodome', 'pysocks','gevent','pyexecjs'
 ```
-**如果你的操作环境支持[quickjs](https://github.com/PetterS/quickjs),请先安装**
+ 
+**部分解析运行JS,需要安装NodeJs环境.如果你的操作环境支持[quickjs](https://github.com/PetterS/quickjs),可以不用安装NodeJs**
+
+```
+pip3 install quickjs
+```
 ## 使用说明
-**默认打印JSON**
+**默认打印JSON (Parse)**
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html
 {'title': '刀剑神域 爱丽丝篇 异界战争 第5集 开战前夜', 'image': 'http://pic7.iqiyipic.com/image/20191110/ed/52/v_140769663_m_601_m1_480_270.jpg', 'vid': '1f744786c7f4b15d4ec70b08d030bbfd', 'tvid': '9177088900', 'pay': '', 'duration': 1445, 'hd': 5, 'parse': 'https://www.iqiyi.com/v_19rv876x9k.html', 'type': 'iqiyi', 'vtype': 'video', 'streams': {'segs': [{'url': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8', 'duration': 1445, 'size': 325434438}], 'm3u8': 'http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8'}, 'quality': ['极速', '流畅', '高清', '720P', '1080P', '1080P50'], 'multirates': 6, 'show': '1080P', 'playType': 'm3u8', 'ext': 'm3u8'}
 ```
-**-d : 下载**
+**-d : 下载 (Download)** 
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -d
 site:                爱奇艺(AQIYI)
@@ -37,7 +47,7 @@ Hls: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afb
 [1 / 190] |-████████████████████████████████-|100%  2170.78kb/s 0.73M/0.85M 
 [2 / 190] |-███████████████████████████████--|98%  144.80kb/s 2.51M/2.56M
 ```
-**-j : 打印格式化JSON**
+**-j : 打印格式化JSON (Format JSON and print)**
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j
 {
@@ -75,7 +85,7 @@ $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j
     "vtype": "video"
 }
 ```
-**-r : 获取其他分辨率解析链接**
+**-r : 获取其他分辨率解析链接 (Video resolution selection)**
 
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j -r 1
@@ -114,7 +124,7 @@ $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j -r 1
     "vtype": "video"
 }
 ```
-**-q : 只获取链接信息,不获取解析地址**
+**-q : 只获取链接信息,不获取解析地址 (Output only video information)**
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j -q
 {
@@ -130,7 +140,7 @@ $ vparse https://www.iqiyi.com/v_19rv876x9k.html -j -q
     "vtype": "video"
 }
 ```
-**-c : 传入cookie 支持文本或字符串**
+**-c : 传入cookie 支持文本或字符串 (Parsing used cookies, supports text and strings)**
 
 ```
 $ vparse https://www.iqiyi.com/v_19rvasnkfk.html -c ./iqiyi.txt -j
@@ -170,7 +180,7 @@ $ vparse https://www.iqiyi.com/v_19rvasnkfk.html -c "name=value; name2=value2;" 
     "vtype": "video"
 }
 ```
-**-t : urls为id形式时使用**
+**-t : urls为id形式时使用 (Parsing type,Add when urls is not a URL)**
 ```
 $ vparse 9177088900 -t iqiyi -q -j
 {
@@ -186,7 +196,7 @@ $ vparse 9177088900 -t iqiyi -q -j
     "vtype": "video"
 }
 ```
-**-x : proxy代理**
+**-x : proxy代理 (Proxy)**
 
 ```
 $ vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x socks5://127.0.0.1:1080 -j
@@ -229,7 +239,7 @@ $ vparse https://www.youtube.com/watch?v=p50QboBtZ5w -x 127.0.0.1:10800 -j
     "vtype": "video"
 }
 ```
-**-l : 列表获取**
+**-l : 列表获取 (Add when urls is playlist)**
 
 ```
 $ vparse http://www.le.com/comic/45402.html -l -q -j
@@ -274,7 +284,7 @@ $ vparse http://www.le.com/comic/45402.html -l -q -j
     "vtype": "video"
 } 
 ```
-**-o : 列表选择性获取 a,b,c...**
+**-o : 列表选择获取 a,b,c... (If the urls is a playlist, only value will be parsed)**
 
 ```
 $ vparse http://www.le.com/comic/45402.html -l -q -j -o 12,26,55
@@ -309,7 +319,7 @@ $ vparse http://www.le.com/comic/45402.html -l -q -j -o 12,26,55
     "vtype": "video"
 }
 ```
-**-b : 列表范围获取**
+**-b : 列表范围获取 (If the urls is a playlist, it will start parse from value)**
 
 ```
 $ vparse http://www.le.com/comic/45402.html -l -q -j -b 60,64
@@ -367,7 +377,7 @@ $ vparse http://www.le.com/comic/45402.html -l -q -j -b 60
     "vtype": "video"
 }
 ```
-**-y : 语言选项**
+**-y : 语言选项 (Select language options)**
 
 ```
 $ vparse https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html -j -y yue
@@ -416,7 +426,7 @@ $ vparse https://v.youku.com/v_show/id_XMzQ3OTU4NjA3Ng==.html -j -y yue
     "vtype": "video"
 }
 ```
-**-p : 播放器播放**
+**-p : 播放器播放 (Directly play the video with PLAYER like mpv)**
 
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -p mpv
@@ -438,7 +448,7 @@ stream:
 
 Playing: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afbe8fd3d73448c9//20191107/00/78/ef4f5563bef229be82c368d0cb153807.m3u8
 ```
-**-n : 自定义下载文件名**
+**-n : 自定义下载文件名 (Video downloaded with the file name you want)**
 ```
 $ vparse http://www.le.com/ptv/vplay/1277141.html -n 乐视视频标题测试 -d
 site:                乐视(LE)
@@ -464,7 +474,7 @@ Hls: http://play.g3proxy.lecloud.com//vod/v2/MjMyLzUzLzIzL2xldHYtdXRzLzE0L3Zlcl8
 [5 / 86] |-████████████████████████████████-|100%  5343.18kb/s 1.51M/1.79M 
 [6 / 86] |-████████████████████████████████-|100%  5254.63kb/s 0.94M/1.44M 
 ```
-**-s : 调试**
+**-s : 调试 (Debug)**
 
 ```
 $ vparse http://www.le.com/ptv/vplay/1277143.html -s -j
@@ -511,7 +521,7 @@ DEBUG:parse:data: {"code": 1, "msgs": {"playurl": {"videoType": {"180001": "\u6b
 }
 
 ```
-**读取文本链接 暂只支持txt格式**
+**读取文本链接 暂只支持txt格式 (urls.txt)**
 
 ```
 urls.txt格式
@@ -565,7 +575,7 @@ $ vparse ./urls.txt -t le -q -j
     "vtype": "video"
 }
 ```
-**一次获取多个解析**
+**一次获取多个解析 (vparse url1 url2 url3)**
 
 ```
 $ vparse -q -j -t le http://www.le.com/ptv/vplay/1277141.html http://www.le.com/ptv/vplay/1277142.html
@@ -595,29 +605,29 @@ $ vparse -q -j -t le http://www.le.com/ptv/vplay/1277141.html http://www.le.com/
 ## 参数说明
 | 参数 | 数值 | 默认 | 说明 | 英 |
 | --- | --- | --- | --- | --- |
-| urls | url<div> id |  | 链接<div> id |  |
-| -b <div>--beginning | x<div> x,y | False  | 链接是列表时生效<div>若番剧总集为n  <div>参数为x时,解析x到n </div> <div>参数为x,y时,解析x到y |  |
-| -c <div>--cookie | string<div>cookie.txt  | False | cookie字符或文本地址 <div>name=value; name2=value2;<div>当传入文本时,支持 Netscape HTTP Cookie File 和 String Cookie |  |
-| -d <div>--download |   | store_true  | 执行下载 |  |
-| -f<div> —dir | /dir | False | 文件存放目录<div>类型:%type   形式:%vtype<div>支持format time结构化表示<div>%m %d  |  |
-| -i <div>--init | backup(b)  <div>restore(r) | False | 初始化设置 <div>参数为b时,备份user.py<div> 参数为r时,还原user.py |  |
-| -j <div>--json |  | store_true | 格式化json输出 |  |
-| -l <div>--playlist |  | store_true | 说明该解析为播放列表 |  |
-| -m <div>--merge | 1<div>0 | 1  |解析分段合并成整段  <div>默认1,下载并合并</div> <div>为0时,只下载不合并    |  |
-| -n <div>--name | filename | False | 下载文件名 |  |
-| -o <div>--only |   <div>x</div> <div>x,y <div> x,y,z</div> | False | 解析列表时生效  <div>参数为x时,解析x的链接</div> <div>参数为x,y时,解析x和y </div>  |  |
-| -p <div>--player | mpv<div> browser | False | 选择播放器<div> mpv或者浏览器 |  |
-| -q <div>--query |  | store_true | 只获取视频信息,不获取解析地址 |  |
-| -r<div> --hd | 1-7 | False | 分辨率选择   |  |
-| -s <div>--debug |  | store_true | 输出调试信息 |  |
-| -t <div>--type | bilibili <div> qq | False | 若urls以id形式<div>必须添加 |  |
-| -u <div>--multi | 10 <div>  x | False | 下载格式为m3u8<div>启用多线程(伪)下载 |  |
-| -v <div>--vtype | video<div> music<div>   live  | False | 区分urls类型<div>直播或音乐或视频<div> 若urls以id形式,必须添加 |  |
-| -x<div> —proxy | socks5://x.x.x.x:y <div>x.x.x.x:y | False | 代理服务器<div> http https socks |  |
-| -y<div> —-lang |  | False | 国语/粤语...获取 |  |
-| -z<div> --timeout | 8 | False | 超时设置 |  |
-| -ccode <div>--ccode |  |  | 优酷ccode |  |
-| -pwd<div> --pwd |  |  | 视频密码 |  |
+| urls | url<div> id |  | 链接<div> id |url<div>id  |
+| -b <div>--beginning | x<div> x,y | False  | 链接是列表时生效<div>若番剧总集为n  <div>参数为x时,解析x到n </div> <div>参数为x,y时,解析x到y |If the urls is a playlist, it will start parse from value  |
+| -c <div>--cookie | string<div>cookie.txt  | False | cookie字符或文本地址 <div>name=value; name2=value2;<div>当传入文本时,支持 Netscape HTTP Cookie File 和 String Cookie | Parsing used cookies, supports text and strings |
+| -d <div>--download |   | store_true  | 执行下载 |Download video  |
+| -f<div> —dir | /dir | False | 文件存放目录<div>类型:%type   形式:%vtype<div>支持format time结构化表示<div>%m %d  |Set download directory  |
+| -i <div>--init | backup(b)  <div>restore(r) | False | 初始化设置 <div>参数为b时,备份user.py<div> 参数为r时,还原user.py |Initial setup, backup or restore user.py  |
+| -j <div>--json |  | store_true | 格式化json输出 |Format JSON and print  |
+| -l <div>--playlist |  | store_true | 说明该解析为播放列表 | Add when urls is playlist |
+| -m <div>--merge | 1<div>0 | 1  |解析分段合并成整段  <div>默认1,下载并合并</div> <div>为0时,只下载不合并    | Merge videos by default, when the value is 0, do not merge |
+| -n <div>--name | filename | False | 下载文件名 |Video downloaded with the file name you want  |
+| -o <div>--only |   <div>x</div> <div>x,y <div> x,y,z</div> | False | 解析列表时生效  <div>参数为x时,解析x的链接</div> <div>参数为x,y时,解析x和y </div>  | If the urls is a playlist, only value will be parsed |
+| -p <div>--player | mpv<div> browser | False | 选择播放器<div> mpv或者浏览器 | Directly play the video with PLAYER like mpv |
+| -q <div>--query |  | store_true | 只获取视频信息,不获取解析地址 |Output only video information  |
+| -r<div> --hd | 1-7 | False | 分辨率选择   | Video resolution selection |
+| -s <div>--debug |  | store_true | 输出调试信息 |Print debug messages from parse  |
+| -t <div>--type | bilibili <div> qq | False | 若urls以id形式<div>必须添加 | Parsing type,Add when urls is not a URL |
+| -u <div>--multi | 10 <div>  x | False | 下载格式为m3u8<div>启用多线程(伪)下载 | Multi-threaded download |
+| -v <div>--vtype | video<div> music<div>   live  | False | 区分urls类型<div>直播或音乐或视频<div> 若urls以id形式,必须添加 | Add if the urls is live or music and urls is not a URL |
+| -x<div> —proxy | socks5://x.x.x.x:y <div>x.x.x.x:y | False | 代理服务器<div> http https socks |Proxy option, support http, https, socks5  |
+| -y<div> —-lang |  | False | 国语/粤语...获取 |Select language options  |
+| -z<div> --timeout | 8 | False | 超时设置 | Set httpGet timeout seconds, default 8s |
+| -ccode <div>--ccode |  |  | 优酷ccode | Youku ccode, default 0511 |
+| -pwd<div> --pwd |  |  | 视频密码 | Encryption password for video |
 ## 用户自定义
 
 ```
