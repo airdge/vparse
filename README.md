@@ -681,3 +681,12 @@ $ vparse -q -j -t le http://www.le.com/ptv/vplay/1277141.html http://www.le.com/
 | %m | 时间日期格式化 | 月份 |
 | %y | 时间日期格式化 | 年份 |
 | %** | 时间日期格式化 | 具体查阅python日期格式 |
+
+## extra
+| 参数 | 数值 | 说明(都是非必要,需要添加) |
+| --- | --- | --- |
+| reload | int | 一般腾讯视频下载三个分段后,会限速. 设置改参数后,每下载(3)个分段后,会重新执行解析,替换原有的下载链接,从而达到下载不限速 |
+| language | array | 像优酷视频会有多个语言切换. 设置该参数后,会在终端提示该视频有多少语言可选 code:language  lang:语言  url:链接 |
+| download | str | 下载模式选择,测试功能,可以忽略 |
+| cookie<div>referer<div>useragent<div>encoding | str | 请求头参数,如果没有添加header,可以单独设置 |
+| header | dict | 请求头 |
