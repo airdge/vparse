@@ -1,12 +1,14 @@
 ## 新年快乐
 **解析只对部分用户开放,本次主要更新**
 ```
+修改 reload逻辑,当设置reload时,下载速度小于10k,将跳过当前分段下载任务,等待下一次轮询重新获取segs后,继续下载 此模式暂只适用于腾讯视频限速
+新增 -i --info参数,只输出资源信息,不下载
 新增 -a --capture参数,视频截取更方便了,不需要整段下载后再去截取 -a -ts 60 -te 120
-修复 YouTube sig参数缺失导致无法下载播放
+修复 YouTube sig参数缺失导致无法下载播放,暂不支持mpd
 修复 YouTube添加代理后,只能下载,不能在线播放bug,不再使用原边下边播模式
 新增 YouTube itag组合播放 -itag 315:251 -p mpv
 新增 --player=temp,资源可以在线缓存播放
-新增 -f --format参数,下载完直接调用ffmpeg转码 -f mp4/flv
+新增 -f --format参数,下载完直接调用ffmpeg格式转码
 修改 -u --multi参数,全局默认多线程下载
 新增 --init 用户自定义配置
 移除 python3.6以下版本支持
@@ -21,7 +23,7 @@ pip3 show vparse
 ## 扩展依赖
 
 ```
-'requests', 'pycryptodome', 'pysocks','pyexecjs'
+'requests', 'pycryptodome', 'pysocks','pyexecjs', "coloredlogs"
 ```
  
 **部分解析运行JS,需要安装NodeJs环境.如果你的操作环境支持[quickjs](https://github.com/PetterS/quickjs),可以不用安装NodeJs**
