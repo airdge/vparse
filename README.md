@@ -1,16 +1,21 @@
 ## 新年快乐
 **解析只对部分用户开放,本次主要更新**
 ```
-修改 reload逻辑,当设置reload时,下载速度小于10k,将跳过当前分段下载任务,等待下一次轮询重新获取segs后,继续下载 此模式暂只适用于腾讯视频限速
+修改 -x ignore,不走系统代理
+新增 extra.multi,可以单独控制该资源类型的下载线程
+新增 extra.retry,segs分段解析出错时,会重新调用parse函数重新解析获取segs
+修改 extra.reload逻辑,下载速度小于10k或异常退出,等待下一次轮询,调用重载函数reload,重新获取segs切片后,继续下载.此模式适用于腾讯视频限速
+新增 解析重载函数reload,资源下载出错时,可以单独解析切片segs[idx]['url']
+新增 解析备用函数afresh,parse函数解析出错时,会调用afresh函数执行另外一个api的解析
 新增 -i --info参数,只输出资源信息,不下载
 新增 -a --capture参数,视频截取更方便了,不需要整段下载后再去截取 -a -ts 60 -te 120
 修复 YouTube sig参数缺失导致无法下载播放,暂不支持mpd
-修复 YouTube添加代理后,只能下载,不能在线播放bug,不再使用原边下边播模式
+修复 YouTube添加代理后,只能下载,不能在线播放bug 
 新增 YouTube itag组合播放 -itag 315:251 -p mpv
-新增 --player=temp,资源可以在线缓存播放
+新增 --player=temp,边下边播
 新增 -f --format参数,下载完直接调用ffmpeg格式转码
-修改 -u --multi参数,全局默认多线程下载
-新增 --init 用户自定义配置
+修改 -u --multi参数,全局默认多线程下载,控制进程数
+新增 --init 用户自定义配置,初始安装执行--init=r生成config.py,--init=b备份config.py
 移除 python3.6以下版本支持
 ```
 
