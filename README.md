@@ -1,26 +1,22 @@
 ## 新年快乐
 **解析只对部分用户开放,本次主要更新**
 ```
-新增 query.context,解析过程parse和query获取了同个api,可以设置context.key=value,减少api的重复调用
+新增 query.context,解析过程parse和query获取了同个api,可以设置query.context.key=value,减少api的重复调用
 修改 -x ignore,不走系统代理
 新增 extra.multi,可以单独控制该资源类型的下载线程
-新增 extra.retry,segs分段解析出错时,会重新调用parse函数重新解析获取segs
-修改 extra.reload逻辑,下载速度小于10k或异常退出,待下一次轮询时,会调用重载函数reload,重新获取segs切片后,继续下载.此模式适用于腾讯视频限速
+新增 extra.retry,segs分段解析出错时,会重新调用parse函数解析获取segs
+修改 extra.reload逻辑,下载速度小于10k或异常退出,待下一次轮询时,会调用重载函数reload,重新获取segs切片后,继续下载.此模式适用于腾讯视频限速 
 新增 解析重载函数reload,资源下载出错时,可以单独解析切片segs[idx]['url']
 新增 解析备用函数afresh,parse函数解析出错时,会调用afresh函数执行另外一个方案解析
 新增 -i --info参数,只输出资源信息,不下载
 新增 -a --capture参数,视频截取更方便了,不需要整段下载后再去截取 -a -ts 60 -te 120
 修复 YouTube sig参数缺失导致无法下载播放,暂不支持mpd
-修复 YouTube添加代理后,只能下载,不能在线播放bug 
-修复 YouTube添加代理后,只能下载,不能在线播放bug,不再使用原边下边播模式
+修复 YouTube添加代理后,只能下载,不能在线播放bug  
 新增 YouTube itag组合播放 -itag 315:251 -p mpv
-新增 --player=temp,边下边播
-新增 --player=temp,资源可以在线缓存播放
+新增 --player=temp,边下边播 
 新增 -f --format参数,下载完直接调用ffmpeg格式转码
 修改 -u --multi参数,全局默认多线程下载,控制进程数
 新增 --init 用户自定义配置,初始安装执行--init=r生成config.py,--init=b备份config.py
-修改 -u --multi参数,全局默认多线程下载
-新增 --init 用户自定义配置
 移除 python3.6以下版本支持
 ```
 
@@ -73,6 +69,30 @@ Hls: http://cache.m.iqiyi.com/mus/246382101/3dfabf1047a5363e76c72e12fece8764/afb
 **-f --format : 格式转换 (FFMPEG format)** 
 ```
 $ vparse https://www.iqiyi.com/v_19rv876x9k.html -d -f flv
+```
+**-i --info : 打印信息 (Print Info)**
+```
+$ vparse https://www.bilibili.com/video/av9196627/ -i
+site:                哔哩哔哩(BILIBILI)
+title:               【补帧向 AMV】一花一草一世界
+image:               https://i0.hdslb.com/bfs/archive/f2b6833f8d732c6b624e11572b9b86afac7d9687.jpg
+vid:                 15195741
+tvid:                9196627
+parse:               https://www.bilibili.com/video/av9196627/
+hd:                  5
+stream:
+    - ext:           flv
+      playback:      mp4
+      size:          29.27M [30695642 Bytes]
+      duration:      127.9s
+      quality:       ['流畅 360P', '清晰 480P', '高清 720P', '高清 720P60', '高清 1080P']
+      show:          高清 1080P
+      multirates:    5
+      length:        1
+      dir:           /Users/air/download/bilibili
+location:
+    - mp4:           http://upos-sz-mirrorkodo.bilivideo.com/upgcxcode/41/57/15195741/15195741-1-48.mp4?e=ig8euxZM2rNcNbhHhwdVhoMznWdVhwdEto8g5X10ugNcXBB_&deadline=1611328409&gen=playurl&nbs=1&oi=2015931112&os=kodobv&platform=html5&trid=923acbe223004079964252b889786629&uipk=5&upsig=6cb09ed2e37902f6aad9793136eedbab&uparams=e,deadline,gen,nbs,oi,os,platform,trid,uipk&mid=0
+      part[1]:       http://upos-sz-mirrorkodo.bilivideo.com/upgcxcode/41/57/15195741/15195741-1-80.flv?e=ig8euxZM2rNcNbUH7zUVhoMBnWuBhwdEto8g5X10ugNcXBB_&deadline=1611328410&gen=playurl&nbs=1&oi=2015931112&os=kodobv&platform=html5&trid=77a8d5a5535246a9885d8e704cdaab7b&uipk=5&upsig=f941d3e7dfcec3d52c673a90df4f1e66&uparams=e,deadline,gen,nbs,oi,os,platform,trid,uipk&mid=0 [30695642]
 ```
 **-j --json : 打印格式化JSON (Format JSON and print)**
 ```
@@ -433,11 +453,7 @@ DEBUG:bilibili.py:230:parse:getFlvSource: {"from":"local","result":"suee","quali
     "category": "video",
     "duration": 128.143,
     "ext": "flv",
-    "extra": {
-        "header": {
-            "Referer": "https://www.bilibili.com/video/",
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:71.0) Gecko/20100101 Firefox/71.0"
-        },
+    "extra": { 
         "headers": {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:68.0) Gecko/20100101 Firefox/68.0"
         },
